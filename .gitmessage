@@ -1,0 +1,20 @@
+<type>[optional scope][optional !]: <description>
+
+[optional body]
+
+[optional footer(s)]
+
+# Types:
+# feat      User-visible functionality
+# fix       Bug fix
+# docs      Documentation only
+# style     Formatting only
+# refactor  Code restructuring without behavior changes
+# perf      Performance improvement
+# test      Tests
+# build     Build system or dependencies
+# ci        Continuous integration
+# chore     Other maintenance
+# revert    Revert an earlier commit
+#
+# See CONTRIBUTING.md for the complete rules.
