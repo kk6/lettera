@@ -20,6 +20,13 @@ Use `pnpm`; do not use npm or Yarn.
 - Run the frontend only: `pnpm dev`
 - Run the desktop application: `pnpm tauri dev`
 - Type-check and build the frontend: `pnpm build`
+- Type-check the frontend only: `pnpm typecheck`
+- Check frontend formatting: `pnpm format`
+- Format frontend files: `pnpm format:write`
+- Lint frontend files: `pnpm lint`
+- Apply safe frontend lint fixes: `pnpm lint:fix`
+- Check Rust formatting: `cargo fmt --manifest-path src-tauri/Cargo.toml --check`
+- Lint the Rust backend: `cargo clippy --manifest-path src-tauri/Cargo.toml -- -D warnings`
 - Check the Rust backend: `cargo check --manifest-path src-tauri/Cargo.toml`
 
 ## Working rules
@@ -32,8 +39,9 @@ Use `pnpm`; do not use npm or Yarn.
 
 ## Verification
 
-- For frontend changes, run `pnpm build`.
+- For frontend changes, run `pnpm format`, `pnpm lint`, and `pnpm build`.
 - For Rust or Tauri-command changes, also run `cargo check --manifest-path src-tauri/Cargo.toml`.
+- For Rust changes, also run `cargo fmt --manifest-path src-tauri/Cargo.toml --check` and `cargo clippy --manifest-path src-tauri/Cargo.toml -- -D warnings`.
 - For visible UI changes, verify the application with `pnpm tauri dev` when the environment supports it.
 - Report checks that could not be run.
 
