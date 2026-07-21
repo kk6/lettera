@@ -17,6 +17,7 @@ erDiagram
     FOLDER o|--o{ FOLDER : "contains"
     EDITING_SESSION ||--o{ RECENT_FILE : "shows"
     RECENT_FILE }o--|| LOCAL_FILE : "refers to"
+    EDITING_SESSION ||--|| APP_SETTINGS : "uses"
 
     EDITING_SESSION {
         boolean has_unsaved_changes
@@ -51,6 +52,11 @@ erDiagram
     RECENT_FILE {
         datetime last_opened_at
     }
+
+    APP_SETTINGS {
+        number base_font_size
+        string color_scheme "system、light、dark"
+    }
 ```
 
 ## 概念の補足
@@ -62,11 +68,12 @@ erDiagram
 - **Heading**はMarkdown本文から導出する概念であり、Documentとは別の正本にしない。プレビューも同様に本文から導出するため、独立したエンティティとして表していない。
 - **Folder**はファイルツリーの起点と階層を表す。Letteraがフォルダー自体を所有することは意味しない。
 - **Recent file**は、利用者が過去に開いたLocal fileを再度見つけるための参照である。参照先が移動または削除されている可能性を許容する必要がある。
+- **App settings**は、文書とは独立したLettera全体の設定である。基本フォントサイズとカラーモードを保持し、起動中のEditing sessionへ適用する。
 
 ## 現段階で決めないこと
 
 - 各概念をReact state、Rustの型、設定ファイルなどのどこへ配置するか
-- 最近使ったファイルやUI表示状態を永続化するか、その保存形式
+- 最近使ったファイルとApp settingsを保存する具体的なファイル構造、ファイル名、スキーマ更新方法
 - ファイルとフォルダーを内部でどの識別子によって追跡するか
 - 見出し、プレビュー、アウトラインで共有する解析結果の構造
 - 複数ウィンドウ、複数タブ、外部ファイル変更へ対応するための関係
