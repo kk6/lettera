@@ -29,7 +29,7 @@ Draft
 | DT-02 | Local file | ユーザーの正本 | ローカルファイルシステム | FN-06〜FN-09 |
 | DT-03 | Editing session | セッション状態 | 現在の操作 | FN-01〜FN-05、FN-10、FN-12、FN-15、FN-17、FN-22、FN-23 |
 | DT-04 | App settings | Lettera固有の永続データ | Letteraのアプリデータ | FN-25〜FN-28 |
-| DT-05 | Recent file reference | Lettera固有の永続データ | 読込・新規保存の成功結果 | FN-18、FN-19、FN-06 |
+| DT-05 | Recent file reference | Lettera固有の永続データ | Letteraのアプリデータ | FN-18、FN-19、FN-30、FN-06 |
 | DT-06 | Folder reference | セッション状態 | 利用者が選んだフォルダー | FN-20、FN-21 |
 | DT-07 | File tree entry | 導出データ | Folder reference以下の現在の構成 | FN-21、FN-06 |
 | DT-08 | Heading | 導出データ | Document.body | FN-16、FN-17 |
@@ -124,7 +124,7 @@ Lettera内にLocal fileの本文を別の永続データとして複製しない
 | path | 対象Local fileへの参照 | 同じ対象を重複登録しない。利用時に検証する |
 | last used at | 読込または新規保存に最後に成功した時点 | 一覧の順序を決められる時点情報 |
 
-参照先が移動または削除されても、Recent file referenceが直ちに不正なデータになるとはみなさない。利用者が選んだ時点で読込を試み、失敗時は現在の文書を保持する。一覧から自動的に削除するかは現時点では決めない。
+参照先が移動または削除されても、Recent file referenceが直ちに不正なデータになるとはみなさない。利用者が選んだ時点で読込を試み、失敗時は現在の文書を保持する。利用者は参照だけを一覧から除ける。自動的に削除するかは現時点では決めない。
 
 ## DT-06 Folder reference
 
@@ -246,6 +246,7 @@ App data envelopeが単一ファイル、複数ファイル、またはライブ
 10. Pending actionは保存成功後に一度だけ実行し、元の操作が不明な状態で文書を置き換えない。
 11. 新規文書のfile typeは作成時点のApp settingsから決定し、設定が欠落または不正な場合はmdを使用する。
 12. 新規保存または別名保存でDocumentと異なる対応拡張子を選んだ場合、保存成功後にだけfile typeとformatを更新する。
+13. Recent file referenceを除いても、参照先のLocal fileを削除、移動、または変更しない。
 
 ## 正規化と重複の扱い
 
@@ -265,7 +266,7 @@ App data envelopeが単一ファイル、複数ファイル、またはライブ
 - 未保存状態を内容比較、変更フラグ、版番号などのどれで判定するか
 - 本文内の位置を文字オフセット、行と列、エディタ固有位置のどれで表すか
 - App data envelopeの物理形式、ファイル名、保存場所、書き込み方式
-- Recent file referenceの最大件数、自動削除、手動削除
+- Recent file referenceの最大件数、自動削除、保存期間
 - 基本フォントサイズの既定値、最小値、最大値、変更単位
 - 保存時に拡張子がない、または対応外の拡張子が指定された場合の扱い
 - テキスト以外のファイルをFile tree entryへ含めるか
