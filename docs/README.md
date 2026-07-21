@@ -7,6 +7,7 @@
 - [企画書](proposal.md)：なぜ作るのか、誰のためのアプリか、初期版の範囲
 - [Constitution](constitution.md)：開発中に守る長期的な原則
 - [アーキテクチャ](architecture.md)：現在の構成、責務境界、データの流れ
+- [概念データモデル](conceptual-data-model.md)：初期版で扱う主な概念と関係の見取り図
 - [ロードマップ](roadmap.md)：学習単位で分けた実装順
 - [Source editor仕様](features/001-source-editor.md)：最初に実装する機能の振る舞い
 - `adr/`：重要な設計判断と、その時点での理由（必要になったときだけ作成）

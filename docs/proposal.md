@@ -42,6 +42,42 @@ Markdownのプレビューや文書のアウトラインを利用することで
 
 ### 初期版で実現すること
 
+#### ユースケース図
+
+```mermaid
+flowchart LR
+    user["利用者"]
+    files[("ローカルファイルシステム")]
+    macos["macOS"]
+
+    subgraph lettera["Lettera"]
+        direction TB
+        edit(["文書を編集する"])
+        view(["Markdownを確認する"])
+        navigate(["文書内を検索・移動する"])
+        manage(["文書を新規作成・開く・保存する"])
+        browse(["最近使った文書やフォルダーを探す"])
+        operate(["任意の操作方法でコマンドを実行する"])
+        close(["編集内容を失わずに文書やアプリを閉じる"])
+    end
+
+    user --- edit
+    user --- view
+    user --- navigate
+    user --- manage
+    user --- browse
+    user --- operate
+    user --- close
+
+    manage --- files
+    browse --- files
+    close --- files
+    operate --- macos
+    close --- macos
+```
+
+図は初期版の利用目的をまとめたものである。「Markdownを確認する」にはプレビューとSource／Splitモードの切り替え、「文書内を検索・移動する」には検索とアウトラインによる移動、「任意の操作方法でコマンドを実行する」にはツールバー、キーボードショートカット、macOSメニューバーからの操作を含む。
+
 #### 文書の編集
 
 - プレーンテキストを入力・編集できる
