@@ -2,7 +2,7 @@
 
 ## 状態
 
-Draft
+Initial baseline（2026-07-22）
 
 ## 目的と扱い
 
