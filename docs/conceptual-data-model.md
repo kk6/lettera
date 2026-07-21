@@ -2,7 +2,7 @@
 
 ## 目的と扱い
 
-この文書は、Letteraが扱う主な概念と関係を共有するための補助資料である。初期版の機能を考え、後続の仕様作成や実装で見落としを減らすことを目的とする。
+この文書は、Letteraが扱う主な概念と関係を共有するための補助資料である。初期版の機能を考え、後続の仕様作成や実装で見落としを減らすことを目的とする。各機能が必要とする属性、永続性、制約の詳細は[論理データモデル](logical-data-model.md)で扱う。
 
 データベースのテーブル設計、永続化形式、正規化、識別子、データ型を決定するものではない。図中の属性は概念を理解するための代表例であり、実装時にそのまま保持することを要求しない。実装の進行に合わせて、不要な概念の削除や名称・関係の変更を行う。
 
@@ -16,7 +16,7 @@ erDiagram
     FOLDER ||--o{ LOCAL_FILE : "contains"
     FOLDER o|--o{ FOLDER : "contains"
     EDITING_SESSION ||--o{ RECENT_FILE : "shows"
-    RECENT_FILE }o--|| LOCAL_FILE : "refers to"
+    RECENT_FILE o|--|| LOCAL_FILE : "refers to"
     EDITING_SESSION ||--|| APP_SETTINGS : "uses"
 
     EDITING_SESSION {
@@ -50,12 +50,13 @@ erDiagram
     }
 
     RECENT_FILE {
-        datetime last_opened_at
+        datetime last_used_at
     }
 
     APP_SETTINGS {
         number base_font_size
         string color_scheme "system、light、dark"
+        string default_file_type "md、markdown、txt"
     }
 ```
 
@@ -67,8 +68,8 @@ erDiagram
 - **Local file**は保存済み文書の正本であり、Lettera以外のツールからも読み書きできるプレーンテキストまたはMarkdownファイルである。
 - **Heading**はMarkdown本文から導出する概念であり、Documentとは別の正本にしない。プレビューも同様に本文から導出するため、独立したエンティティとして表していない。
 - **Folder**はファイルツリーの起点と階層を表す。Letteraがフォルダー自体を所有することは意味しない。
-- **Recent file**は、利用者が過去に開いたLocal fileを再度見つけるための参照である。参照先が移動または削除されている可能性を許容する必要がある。
-- **App settings**は、文書とは独立したLettera全体の設定である。基本フォントサイズとカラーモードを保持し、起動中のEditing sessionへ適用する。
+- **Recent file**は、利用者が過去に開いた、または新規保存したLocal fileを再度見つけるための参照である。参照先が移動または削除されている可能性を許容する必要がある。
+- **App settings**は、文書とは独立したLettera全体の設定である。基本フォントサイズ、カラーモード、新規文書のデフォルトのファイルタイプを保持し、起動中のEditing sessionへ適用する。
 
 ## 現段階で決めないこと
 
