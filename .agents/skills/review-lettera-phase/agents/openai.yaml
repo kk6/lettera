@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Lettera Phase"
+  short_description: "Review the current Lettera phase for completion"
+  default_prompt: "Use $review-lettera-phase to review whether the current Lettera phase is ready to mark Implemented."

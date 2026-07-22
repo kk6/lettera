@@ -50,6 +50,12 @@ cargo check --manifest-path src-tauri/Cargo.toml
 
 When this repository is opened in VS Code, install the recommended Biome and rust-analyzer extensions. Workspace settings format supported frontend files with Biome and Rust files with rust-analyzer whenever a file is saved. Biome also applies safe lint fixes and organizes imports on save.
 
+### Project skills
+
+Project-specific Codex skills live under `.agents/skills/`.
+
+- [`review-lettera-phase`](.agents/skills/review-lettera-phase/SKILL.md) — review the current roadmap phase against its specification, implementation, architecture, and required verification. Invoke it with `$review-lettera-phase` for requests such as checking whether a phase is ready to mark `Implemented`.
+
 ## Build
 
 ```shell
