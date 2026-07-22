@@ -55,6 +55,7 @@ When this repository is opened in VS Code, install the recommended Biome and rus
 Project-specific Codex skills live under `.agents/skills/`.
 
 - [`review-lettera-phase`](.agents/skills/review-lettera-phase/SKILL.md) — review the current roadmap phase against its specification, implementation, architecture, and required verification. Invoke it with `$review-lettera-phase` for requests such as checking whether a phase is ready to mark `Implemented`.
+- [`suggest-lettera-next-step`](.agents/skills/suggest-lettera-next-step/SKILL.md) — inspect the repository's current documentation, implementation, verification evidence, and Git state, then recommend one concrete next action. Invoke it with `$suggest-lettera-next-step` when deciding what to do next or which Phase is ready to proceed.
 
 For Computer Use during a visible UI review, build and launch a discoverable macOS app bundle:
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Suggest Lettera Next Step"
+  short_description: "Letteraの現在地を調査し、根拠ある小さな次の一手を提案"
+  default_prompt: "Use $suggest-lettera-next-step to inspect Lettera and recommend the single highest-priority next action."
