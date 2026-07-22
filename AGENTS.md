@@ -41,6 +41,7 @@ Determine the working mode from the user's request:
 
 ## Before implementing a feature
 
+- Follow the phase workflow in `docs/requirements-handoff.md`.
 - Use `docs/README.md` to identify the source-of-truth documents, confirm the current phase in `docs/roadmap.md`, and read the corresponding specification under `docs/features/` when one exists.
 - Do not advance to another roadmap phase or implement adjacent features unless explicitly requested.
 - If an unresolved choice would change user-visible behavior, stop and ask the user before implementing that choice.
