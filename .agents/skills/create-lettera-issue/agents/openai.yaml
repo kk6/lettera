@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Lettera Issue"
+  short_description: "Letteraの正本文書から重複の少ないIssueを作成"
+  default_prompt: "Use $create-lettera-issue to draft a Lettera GitHub Issue from the repository source-of-truth documents."
