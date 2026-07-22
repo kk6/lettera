@@ -36,6 +36,8 @@
 
 この段階ではファイル操作を扱わず、固定またはメモリ上の本文だけを使う。
 
+仕様：[Markdown preview](features/002-markdown-preview.md)
+
 ## Phase 3: 最小のファイル読み込み
 
 成果：

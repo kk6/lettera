@@ -16,6 +16,7 @@
 - [要件定義後の進め方](requirements-handoff.md)：初期ベースライン、想定問答、実装中の変更手順
 - [ロードマップ](roadmap.md)：学習単位で分けた実装順
 - [Source editor仕様](features/001-source-editor.md)：最初に実装する機能の振る舞い
+- [Markdown preview仕様](features/002-markdown-preview.md)：Source／Splitの切り替えと安全なMarkdown表示
 - `adr/`：重要な設計判断と、その時点での理由（必要になったときだけ作成）
 
 ## 文書の役割
