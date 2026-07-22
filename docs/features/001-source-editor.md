@@ -2,7 +2,7 @@
 
 ## 状態
 
-Draft
+Implemented
 
 ## 目的
 
