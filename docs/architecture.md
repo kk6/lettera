@@ -76,7 +76,9 @@ Rust native operations (`src-tauri/src/`)
 
 - Markdown本文からプレビューやアウトラインに必要な情報を導出する。
 - 元のMarkdown本文を正本とし、レンダラー固有のモデルを保存形式にしない。
-- 変換ライブラリの選定は、その機能へ着手するときに比較して決める。
+- Phase 2では既存の`textarea`をSource editorとして維持し、`react-markdown`で同じ本文からプレビューを導出する。
+- MilkdownはPhase 2へ導入せず、将来Seamless editorへ着手するときにMarkdownの往復保持、日本語IME、カーソル位置、Undo履歴への影響を評価してから移行するか判断する。
+- 将来のライブラリ移行だけを目的に、現在のPhaseで不要な抽象化を先行実装しない。
 
 ### Rust / Tauri native operations
 
@@ -114,7 +116,8 @@ Rust native operations (`src-tauri/src/`)
 次の事項は、必要な機能へ着手するまで決定しない。
 
 - エディタコンポーネントまたはエディタライブラリ
-- Markdownパーサー／レンダラー
+- Phase 2でGFM拡張を含めるか
+- raw HTMLと危険なURLを安全に扱う具体的な方法
 - Reactの状態管理方法（`useState`を超える仕組みが必要か）
 - ファイルダイアログをTauri pluginと独自Commandのどちらで扱うか
 - アプリ設定と最近使ったファイルを扱う具体的な保存ライブラリ、ファイル構造、スキーマ更新方法

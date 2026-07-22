@@ -36,6 +36,8 @@
 
 この段階ではファイル操作を扱わず、固定またはメモリ上の本文だけを使う。
 
+Phase 1の`textarea`をSource editorとして維持し、`react-markdown`でプレビューを導出する。将来のSeamless editor候補であるMilkdownは、このPhaseでは導入しない。
+
 仕様：[Markdown preview](features/002-markdown-preview.md)
 
 ## Phase 3: 最小のファイル読み込み
@@ -107,7 +109,7 @@
 
 ## Future: Seamless editor
 
-SourceとSplit、文書ライフサイクル、Markdown変換が十分理解できてから検討する。既存Markdownの往復保持、IME、カーソル位置、Undo履歴への影響を調査し、独立した仕様と設計判断を作成してから着手する。
+SourceとSplit、文書ライフサイクル、Markdown変換が十分理解できてから検討する。Milkdownを候補として試し、既存Markdownの往復保持、IME、カーソル位置、Undo履歴への影響を調査する。問題がないことを確認してから移行するか判断し、独立した仕様と設計判断を作成して着手する。
 
 ## 各Phaseの進め方
 
