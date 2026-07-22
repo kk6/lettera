@@ -56,6 +56,14 @@ Project-specific Codex skills live under `.agents/skills/`.
 
 - [`review-lettera-phase`](.agents/skills/review-lettera-phase/SKILL.md) — review the current roadmap phase against its specification, implementation, architecture, and required verification. Invoke it with `$review-lettera-phase` for requests such as checking whether a phase is ready to mark `Implemented`.
 
+For Computer Use during a visible UI review, build and launch a discoverable macOS app bundle:
+
+```shell
+pnpm tauri build --debug --bundles app
+```
+
+The bundle is generated at `src-tauri/target/debug/bundle/macos/lettera.app`. Pass its absolute path with the review request. Computer Use can verify committed text and standard editing operations, but Japanese IME composition and conversion candidates still require a developer-run manual check.
+
 ## Build
 
 ```shell

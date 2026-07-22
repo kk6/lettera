@@ -59,6 +59,7 @@ Determine the working mode from the user's request:
 - For Rust changes, also run `cargo fmt --manifest-path src-tauri/Cargo.toml --check` and `cargo clippy --manifest-path src-tauri/Cargo.toml -- -D warnings`.
 - For visible UI changes, verify the application with `pnpm tauri dev` when the environment supports it.
 - Report checks that could not be run.
+- Before marking a feature specification `Implemented`, add a concise completion record to that specification. Record the implementation commit or change, automated checks, developer-run manual checks, and whether the developer confirmed the learning goals. A later recollection must be labeled as retrospective; do not infer an unrecorded manual check from the implementation or status alone.
 
 ## Documentation
 
