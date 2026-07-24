@@ -15,6 +15,7 @@
 - [要件定義の仕上げ](requirements-completion.md)：CRUDとトレーサビリティによる要件の過不足確認
 - [要件定義後の進め方](requirements-handoff.md)：初期ベースライン、想定問答、実装中の変更手順
 - [ロードマップ](roadmap.md)：学習単位で分けた実装順
+- [フロントエンドテスト方針](testing.md)：VitestとTesting Libraryによるテストの作成・レビュー基準
 - [Source editor仕様](features/001-source-editor.md)：最初に実装する機能の振る舞い
 - [Markdown preview仕様](features/002-markdown-preview.md)：Source／Splitの切り替えと安全なMarkdown表示
 - `adr/`：重要な設計判断と、その時点での理由（必要になったときだけ作成）
@@ -30,6 +31,7 @@
 - 機能定義は、利用者の操作や外部入力に対してLetteraが行う処理と出力を表す。
 - 要件定義の仕上げは、各文書の対応関係と要件の過不足を確認した結果を表す。
 - 要件定義後の進め方は、要件成果物を実装へ引き継ぎ、変更しながら維持する方法を表す。
+- フロントエンドテスト方針は、React／TypeScriptのテストを作成・レビューする際の判断基準を表す。
 - 機能仕様は、利用者から観察できる振る舞いと対象外を表す。
 - ADRは、複数の選択肢から重要な判断をした時点のWhy／Whatを残す。
 

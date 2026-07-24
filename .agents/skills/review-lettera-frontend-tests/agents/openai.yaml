@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Lettera Frontend Tests"
+  short_description: "Letteraのフロントエンドテストを専門レビュー"
+  default_prompt: "Use $review-lettera-frontend-tests to review Lettera frontend tests against the repository testing policy."

@@ -19,6 +19,10 @@ Use `pnpm`; do not use npm or Yarn.
 - Install dependencies: `pnpm install`
 - Run the frontend only: `pnpm dev`
 - Run the desktop application: `pnpm tauri dev`
+- Do not use the system Python. Run Python scripts with `uv run`; when a script imports PyYAML, use `uv run --with pyyaml`.
+- Treat `mise.toml` as the source of truth for project tool versions.
+- Run Node.js and pnpm commands through `mise exec --`, for example `mise exec -- pnpm test`.
+- Before reporting a Node.js compatibility problem, verify the project runtime with `mise exec -- node --version`.
 
 ## Working rules
 
@@ -54,6 +58,7 @@ Determine the working mode from the user's request:
 
 ## Verification
 
+- For frontend test creation or review, use `docs/testing.md` as the source of truth.
 - For frontend changes, run `pnpm format`, `pnpm lint`, and `pnpm build`.
 - For Rust or Tauri-command changes, also run `cargo check --manifest-path src-tauri/Cargo.toml`.
 - For Rust changes, also run `cargo fmt --manifest-path src-tauri/Cargo.toml --check` and `cargo clippy --manifest-path src-tauri/Cargo.toml -- -D warnings`.
