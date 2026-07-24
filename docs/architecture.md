@@ -4,7 +4,7 @@
 
 この文書は現在の構成を表すliving documentである。コードの責務やデータの流れを変更した場合は、同じ変更内で更新する。
 
-現在はPhase 1が完了し、Reactのstateで本文を保持するcontrolled textareaとしてSource editorを実装済みである。Tauri初期テンプレートのサンプルUIと`greet` Commandは削除しており、Rust Commandはまだ持たない。以下の境界は目標とする構成を含む。存在しないレイヤーや抽象化を、文書に合わせるためだけに先行実装しない。
+現在はPhase 2のMarkdownプレビューまで完了している。Reactのstateで本文とSource／Splitの表示モードを保持し、controlled textareaとしてSource editorを表示する。Splitでは同じ本文からReact内でMarkdownプレビューを導出する。Tauri初期テンプレートのサンプルUIと`greet` Commandは削除しており、Rust Commandはまだ持たない。以下の境界は目標とする構成を含む。存在しないレイヤーや抽象化を、文書に合わせるためだけに先行実装しない。
 
 ## システムコンテキスト
 
@@ -76,7 +76,9 @@ Rust native operations (`src-tauri/src/`)
 
 - Markdown本文からプレビューやアウトラインに必要な情報を導出する。
 - 元のMarkdown本文を正本とし、レンダラー固有のモデルを保存形式にしない。
-- Phase 2では既存の`textarea`をSource editorとして維持し、`react-markdown`で同じ本文からプレビューを導出する。
+- Phase 2では既存の`textarea`をSource editorとして維持し、`react-markdown`と`remark-gfm`で同じ本文からプレビューを導出する。
+- Phase 2のraw HTML、リンク、画像に関する安全な表示方針は、[Markdown preview仕様](features/002-markdown-preview.md)を正本とする。
+- Markdown変換とSource／Splitの表示状態はReact内で扱い、Rust Commandを経由しない。
 - MilkdownはPhase 2へ導入せず、将来Seamless editorへ着手するときにMarkdownの往復保持、日本語IME、カーソル位置、Undo履歴への影響を評価してから移行するか判断する。
 - 将来のライブラリ移行だけを目的に、現在のPhaseで不要な抽象化を先行実装しない。
 
@@ -116,8 +118,6 @@ Rust native operations (`src-tauri/src/`)
 次の事項は、必要な機能へ着手するまで決定しない。
 
 - エディタコンポーネントまたはエディタライブラリ
-- Phase 2でGFM拡張を含めるか
-- raw HTMLと危険なURLを安全に扱う具体的な方法
 - Reactの状態管理方法（`useState`を超える仕組みが必要か）
 - ファイルダイアログをTauri pluginと独自Commandのどちらで扱うか
 - アプリ設定と最近使ったファイルを扱う具体的な保存ライブラリ、ファイル構造、スキーマ更新方法

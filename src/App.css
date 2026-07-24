@@ -6,6 +6,11 @@
   background: #ffffff;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.05);
+}
+
 body {
   margin: 0;
 }
@@ -14,6 +19,36 @@ body {
   width: 100vw;
   height: 100vh;
   display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.view-controls {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.25rem;
+}
+
+.workspace {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+}
+
+.workspace--source {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.workspace--split {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.preview {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 1rem;
+  background: rgb(243, 243, 243);
+  scrollbar-gutter: stable;
 }
 
 .editor {
@@ -28,6 +63,7 @@ body {
   overflow-wrap: anywhere;
 
   border: 0;
+  outline: none;
   padding: 1rem;
   resize: none;
   font: inherit;
@@ -35,4 +71,12 @@ body {
   line-height: 1.25rem;
   color: inherit;
   background: inherit;
+  scrollbar-gutter: stable;
+}
+
+.editor:focus,
+.editor:focus-visible {
+  border: 0;
+  outline: none;
+  box-shadow: none;
 }
